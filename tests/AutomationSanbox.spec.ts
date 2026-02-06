@@ -164,7 +164,7 @@ test.describe('Acciones en el Automation Sandbox', () => {
     
     })
 
-    test('Los items del dropdown son los esperados', async ({ page }) => {
+    test('Los items del dropdown son los esperados 2', async ({ page }) => {
             await test.step('Dado que navego al Sandbox de Automation de Free Range Testers', async () => {
                 await page.goto('https://thefreerangetester.github.io/sandbox-automation-testing/');
             })
