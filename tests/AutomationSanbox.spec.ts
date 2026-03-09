@@ -192,8 +192,13 @@ test.describe('Acciones en el Automation Sandbox', () => {
         })
 
         await test.step('Puedo validar los elementos para la columna Nobre de la tabla estática',async ()=>{
-            const valoresColumnaNombres = await page.$$eval('tbody tr td:nth-child(2)',elements => elements.map(element => element.textContent));
+            const valoresColumnaNombres = await page.$$eval('h2:has-text("Tabla Estática") + table tbody tr td:nth-child(2)',elements => elements.map(element => element.textContent));
             const nombresEsperados = ['Messi','Ronaldo','Mbappe'];
+
+            await test.info().attach('screenshot',{
+                body: await page.screenshot(),
+                contentType: 'image/png',
+            })
 
             expect(valoresColumnaNombres).toEqual(nombresEsperados);
             
